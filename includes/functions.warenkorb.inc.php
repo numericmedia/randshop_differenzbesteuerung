@@ -590,7 +590,7 @@ function GetWarenkorbDataArray($Session, $KundenMail, $FilterDetail = 0, $Filter
 
 	global $lang_admin_brutto_summe, $lang_admin_netto_summe;
 	global $lang_admin_brutto_warenwert, $lang_admin_netto_warenwert;
-	global $l_enthMwSt,	$l_zuzueglMwSt, $l_keinemwst;
+	global $l_enthMwSt,	$l_zuzueglMwSt, $l_keinemwst, $l_enthMwStaD;
 
 	// Sprache ermitteln
 	if (!$LanguageID) {
@@ -870,7 +870,8 @@ function GetWarenkorbDataArray($Session, $KundenMail, $FilterDetail = 0, $Filter
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"] = $GesamtSummenBruttoArray[$GesamtSummenBruttoKey]["summe"] - $GesamtSummenNettoArray[$GesamtSummenBruttoKey]["summe"];
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe_format_einfach"] = number_format($WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"], 2, ",", ".");
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe_format"] = number_format($WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"], 2, ",", ".") . " " . $WaehrungObject->symbol;
-				$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = $l_enthMwSt;
+				//$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = $l_enthMwSt;
+				$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = ($GesamtSummenBrutto["mwstsatz"]>0)?$l_enthMwSt:$l_enthMwStaD; // Modifikation für Differenzbesteuerung
 				$MwStCounter++;
 			}
 			
@@ -1577,7 +1578,8 @@ function GetWarenkorbDataArray($Session, $KundenMail, $FilterDetail = 0, $Filter
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"] = $GesamtSummenBruttoArray[$GesamtSummenBruttoKey]["summe"] - $GesamtSummenNettoArray[$GesamtSummenBruttoKey]["summe"];
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe_format_einfach"] = number_format($WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"], 2, ",", ".");
 				$WarenkorbDataArray["mwstarray"][$MwStCounter]["summe_format"] = number_format($WarenkorbDataArray["mwstarray"][$MwStCounter]["summe"], 2, ",", ".") . " " . $WaehrungObject->symbol;
-				$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = $l_enthMwSt;
+				//$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = $l_enthMwSt;
+				$WarenkorbDataArray["mwstarray"][$MwStCounter]["text"] = ($GesamtSummenBrutto["mwstsatz"]>0)?$l_enthMwSt:$l_enthMwStaD; // Modifikation für Differenzbesteuerung
 
 				$MwStCounter++;
 

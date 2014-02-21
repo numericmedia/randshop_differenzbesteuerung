@@ -812,6 +812,7 @@ $l_aendern = "ändern";
 $l_versand = "Versand";
 $l_summe = "Summe";
 $l_enthMwSt = "Enthaltene MwSt";
+$l_enthMwStaD = "Enthaltene MwSt. aus Differenzbesteuerung"; // Ergänzung für Differenzbesteuerung
 $l_zuzueglMwSt = "Zzgl. MwSt";
 $l_keinemwst = "EU Geschäftskunden mit Umsatzsteuerident Nummer wird keine MwSt. berechnet. Sie erhalten von uns eine Nettorechnung (ohne Berechnung der Mehrwertsteuer)"; 
 $l_enthMwStV = "Enthaltene MwSt für Zahlung und Versand ";
